@@ -18,6 +18,11 @@ Neste exemplo, vamos precisar subir um servidor Kafka, para isso vamos utilizar 
 
 Depois de termos nosso servidor Kafka rodando, vamos executar nossa aplicação Nest e fazer a integração com o Kafka através de microserviços, com o intuito de demonstrar como produzir e consumir mensagens do servidor Kafka.
 
+Neste Exemplo sempre quando acessarmos o link:
+http://localhost:3000/producer
+
+Será produzido um conteudo dentro do topico no KAFKA, e nosso microserviço irá consumir esse conteudo isto você poderá visualizar através do console de execução.
+
 ## Subindo o Server Kafka
 
 
