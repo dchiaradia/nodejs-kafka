@@ -1,6 +1,7 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="160" alt="Nest Logo" /></a> + 
-  <img src="https://www.indellient.com/wp-content/uploads/2020/10/20201021_Introduction-to-Apache-Kafka_BLOG-FEATURED-IMAGE.jpg" width="160" alt="Nest Logo" /><
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="160" alt="Nest Logo" /></a> 
+  <font size=48>"+"</font> 
+  <img src="https://www.indellient.com/wp-content/uploads/2020/10/20201021_Introduction-to-Apache-Kafka_BLOG-FEATURED-IMAGE.jpg" width="160" alt="Nest Logo" />
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
