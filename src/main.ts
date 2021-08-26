@@ -22,7 +22,7 @@ async function bootstrap() {
   
   
   //app.useGlobalFilters(new ModelNotFoundExceptionFilter());
-  await app.startAllMicroservicesAsync();
+  await app.startAllMicroservices();
   await app.listen(3000);
 }
 bootstrap();
