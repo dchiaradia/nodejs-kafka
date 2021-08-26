@@ -22,10 +22,13 @@ let ConsumerController = class ConsumerController {
     onModuleInit() {
         this.clientKafka.subscribeToResponseOf('valida-contato');
     }
-    consume(msg) {
+    consumir(msg) {
+        console.log(`Iniciando a leitura do topico através de um microserviço::::>`);
+        console.log('mensagem recebida::');
+        console.log('------------------------------------------------');
         console.log(msg);
-        const resultado = this.clientKafka.send('valida-contato', JSON.stringify({ key: Math.random(), status: 'ok' })).subscribe(reply => console.log(reply));
-        console.log(resultado);
+        console.log('------------------------------------------------');
+        const resultado = this.clientKafka.send('valida-contato', JSON.stringify({ email: msg.value.email })).subscribe((reply) => { console.log(reply); });
     }
 };
 __decorate([
@@ -34,9 +37,9 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
-], ConsumerController.prototype, "consume", null);
+], ConsumerController.prototype, "consumir", null);
 ConsumerController = __decorate([
-    common_1.Controller('consumer'),
+    common_1.Controller(),
     __param(0, common_1.Inject('KAFKA_SERVICE')),
     __metadata("design:paramtypes", [microservices_1.ClientKafka])
 ], ConsumerController);

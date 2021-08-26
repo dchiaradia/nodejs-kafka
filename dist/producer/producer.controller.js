@@ -24,6 +24,8 @@ let ProducerController = class ProducerController {
         this.kafkaProducer = await this.clientKafka.connect();
     }
     async produzir() {
+        console.log(`Iniciando PRODUCER METODO GET:::>`);
+        console.log(`Kafka > Topic: contatos > Iniciando envio de Dados`);
         const resultado = await this.kafkaProducer.send({
             topic: 'contatos',
             messages: [

@@ -17,9 +17,11 @@ const common_1 = require("@nestjs/common");
 const microservices_1 = require("@nestjs/microservices");
 let ValidaContatoController = class ValidaContatoController {
     consume(msg) {
-        console.log(msg);
+        console.log(`Iniciando validacao do contato`);
+        console.log(`email recebido: ${msg.value.email}`);
         return {
-            status: 'add'
+            status: 'validado',
+            email: msg.value.email
         };
     }
 };
@@ -31,7 +33,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ValidaContatoController.prototype, "consume", null);
 ValidaContatoController = __decorate([
-    common_1.Controller('')
+    common_1.Controller()
 ], ValidaContatoController);
 exports.ValidaContatoController = ValidaContatoController;
 //# sourceMappingURL=valida-contato.controller.js.map

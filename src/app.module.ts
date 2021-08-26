@@ -9,6 +9,7 @@ import { ValidaContatoController } from './valida-contato/valida-contato.control
 
 @Module({
   imports: [
+    
     //importante registrar o modulo do KAFKA apontando para o broker e colocando um nome para o serviço
     ClientsModule.register([
       {
@@ -24,7 +25,7 @@ import { ValidaContatoController } from './valida-contato/valida-contato.control
         },
       },
     ]),
-
+    
   ],
   controllers: [AppController, ProducerController, ConsumerController, ValidaContatoController],
   providers: [AppService],
