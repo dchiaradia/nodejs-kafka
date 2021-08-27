@@ -2,9 +2,15 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { Transport } from '@nestjs/microservices';
 
+//IMPORTO O MODULO DE LOGGER
+import { WinstonModule } from 'nest-winston';
+import { winstonConfig } from './configs/winston.config';
+
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: true });
+  //CRIO UM MODULO DO WINSTON LOGGER UTILIZANDO A CONFIGURAÇÃO DO ARQUIVO WINSTON.CONFIG.TS
+  const logger = WinstonModule.createLogger(winstonConfig);
+  const app = await NestFactory.create(AppModule, { cors: true, logger });
 
   //inicio a conexão com o Micro serviço
   //este micro serviço ele fica ouvindo tudo que é transportado(envio/recebido) no Kafka

@@ -14,11 +14,16 @@ const producer_controller_1 = require("./producer/producer.controller");
 const microservices_1 = require("@nestjs/microservices");
 const consumer_controller_1 = require("./consumer/consumer.controller");
 const valida_contato_controller_1 = require("./valida-contato/valida-contato.controller");
+const nest_winston_1 = require("nest-winston");
+const winston_config_1 = require("./configs/winston.config");
+const logger_interceptor_1 = require("./interceptors/logger.interceptor");
+const core_1 = require("@nestjs/core");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [
+            nest_winston_1.WinstonModule.forRoot(winston_config_1.winstonConfig),
             microservices_1.ClientsModule.register([
                 {
                     name: 'KAFKA_SERVICE',
@@ -35,7 +40,12 @@ AppModule = __decorate([
             ]),
         ],
         controllers: [app_controller_1.AppController, producer_controller_1.ProducerController, consumer_controller_1.ConsumerController, valida_contato_controller_1.ValidaContatoController],
-        providers: [app_service_1.AppService],
+        providers: [app_service_1.AppService,
+            {
+                provide: core_1.APP_INTERCEPTOR,
+                useClass: logger_interceptor_1.LoggerInterceptor,
+            },
+        ],
     })
 ], AppModule);
 exports.AppModule = AppModule;
